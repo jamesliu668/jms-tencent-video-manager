@@ -10,7 +10,6 @@
         function showVideoList($searchTerm, $paged) {
             global $wpdb;
 
-            $paged = 1;
             $numberOfRecord = 10;
             $numberOfVideo = $this->model->numberOfVideo($searchTerm);
             $totalPage = ceil($numberOfVideo / $numberOfRecord) ;

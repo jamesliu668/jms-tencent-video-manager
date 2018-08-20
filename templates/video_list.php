@@ -29,7 +29,7 @@ echo $currentURL;
 
 <div class="tablenav top">
     <div class="tablenav-pages">
-        <span class="displaying-num"><?php echo $totalRecord."个视频"?></span>
+        <span class="displaying-num"><?php echo $numberOfVideo."个视频"?></span>
         <span class="pagination-links">
         <?php
             if($paged == 1) {
@@ -176,7 +176,7 @@ echo $currentURL;
 
 <div class="tablenav bottom">
     <div class="tablenav-pages">
-        <span class="displaying-num"><?php echo $totalRecord."个视频"?></span>
+        <span class="displaying-num"><?php echo $numberOfVideo."个视频"?></span>
         <span class="pagination-links">
         <?php
             if($paged == 1) {
