@@ -35,6 +35,8 @@ $jms_tencent_video_manager_version = '1.0';
 register_activation_hook( __FILE__, 'installJMSTencentVideoManager' );
 
 add_action( 'admin_menu', 'jmsTencentVideoAdminPage' );
+add_action('wp_ajax_jms_tencent_video', 'jms_tencent_video_ajax');
+add_action('wp_ajax_nopriv_jms_tencent_video', 'jms_tencent_video_ajax');
 
 
 /**
@@ -167,6 +169,14 @@ function jmsTencentVideoAdminPageOptions() {
         }
 
         $videoController->showVideoList($searchTerm, $paged);
+    }
+}
+
+function jms_tencent_video_ajax($wp) {
+    if($_REQUEST["task"] == "search") {
+        require_once(dirname(__FILE__)."/controllers/JMSTencentVideoController.php");
+        $controller = new JMSTencentVideoController();
+        $controller->search();
     }
 }
 ?>

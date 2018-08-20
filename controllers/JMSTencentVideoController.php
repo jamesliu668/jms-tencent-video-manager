@@ -161,5 +161,14 @@
 
             return true;
         }
+
+        function search() {
+            $query = trim($_REQUEST['q']);
+            $start = trim($_REQUEST['start']);
+            $count = 10; # search for 10 items
+
+            $result = $this->model->search($query, $start, $count);
+            echo wp_json_encode($result);
+        }
     }
 ?>

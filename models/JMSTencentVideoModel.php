@@ -94,5 +94,21 @@
 
             return $result;
         }
+
+        function search($query, $start, $count) {
+            global $wpdb;
+            $table_name = $wpdb->prefix . $this->tableName;
+            $wpdb->show_errors( true );
+
+            if(empty($start)) {
+                $start = 0;
+            }
+
+            if(empty($query)) {
+                return $wpdb->get_results("SELECT id, title, description, update_date, vid, thumb FROM $table_name WHERE published=1 ORDER BY id DESC LIMIT $start, $count", ARRAY_A);
+            } else {
+                return $wpdb->get_results("SELECT id, title, description, update_date, vid, thumb FROM $table_name WHERE published=1 AND `title` LIKE '%".$query."%' ORDER BY id DESC LIMIT $start, $count", ARRAY_A);
+            }
+        }
     }
 ?>
