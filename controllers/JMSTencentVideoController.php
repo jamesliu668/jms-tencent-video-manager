@@ -167,6 +167,11 @@
             $count = 10; # search for 10 items
 
             $result = $this->model->search($query, $start, $count);
+            if(count($result) > 0) {
+                foreach ($result as $k => $value) {
+                    $result[$k]['thumb'] = plugins_url( '/../thumb/'.$value['thumb'], __FILE__ );
+                }
+            }
             echo wp_json_encode($result);
         }
     }
