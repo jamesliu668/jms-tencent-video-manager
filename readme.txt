@@ -2,7 +2,7 @@
 Contributors: James Liu
 Donate link: http://jmsliu.com/products/online-bootstrap-donation/
 Tags: tencent, video manager
-Requires at least: 0.0.1
+Requires at least: 1.0.0
 Tested up to: 4.6
 Stable tag: 4.6
 
